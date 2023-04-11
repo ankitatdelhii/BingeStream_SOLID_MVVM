@@ -17,11 +17,11 @@ class NetworkClient {
     func request(endpoint: APIEndpoint, completion: @escaping (Result<Data, Error>) -> Void) {
         dispatcher.execute(request: endpoint) { (data, response, error) in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(NetworkError.requestFailed(error)))
             } else if let data = data {
                 completion(.success(data))
             } else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"])))
+                completion(.failure(NetworkError.noData))
             }
         }
     }

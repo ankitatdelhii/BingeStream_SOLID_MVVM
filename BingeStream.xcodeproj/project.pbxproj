@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D13CA6B29E5B0C7007D771B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA6A29E5B0C7007D771B /* Network.swift */; };
+		9D13CA6D29E5B111007D771B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA6C29E5B111007D771B /* APIEndpoint.swift */; };
+		9D13CA6F29E5B1A4007D771B /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA6E29E5B1A4007D771B /* URLRequestConvertible.swift */; };
+		9D13CA7129E5B1E2007D771B /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA7029E5B1E2007D771B /* NetworkDispatcher.swift */; };
+		9D13CA7329E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA7229E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift */; };
+		9D13CA7529E5B235007D771B /* URLSessionNetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA7429E5B235007D771B /* URLSessionNetworkDispatcher.swift */; };
+		9D13CA7729E5B253007D771B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA7629E5B253007D771B /* NetworkClient.swift */; };
 		9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */; };
 		9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */; };
 		9D3208B929E5A7F100BF8C35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B829E5A7F100BF8C35 /* ViewController.swift */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D13CA6A29E5B0C7007D771B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9D13CA6C29E5B111007D771B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		9D13CA6E29E5B1A4007D771B /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
+		9D13CA7029E5B1E2007D771B /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		9D13CA7229E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIEndpoint+URLRequestConvertible.swift"; sourceTree = "<group>"; };
+		9D13CA7429E5B235007D771B /* URLSessionNetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkDispatcher.swift; sourceTree = "<group>"; };
+		9D13CA7629E5B253007D771B /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		9D3208B129E5A7F100BF8C35 /* BingeStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D13CA6929E5B0BE007D771B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA6A29E5B0C7007D771B /* Network.swift */,
+				9D13CA6E29E5B1A4007D771B /* URLRequestConvertible.swift */,
+				9D13CA7029E5B1E2007D771B /* NetworkDispatcher.swift */,
+				9D13CA6C29E5B111007D771B /* APIEndpoint.swift */,
+				9D13CA7229E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift */,
+				9D13CA7429E5B235007D771B /* URLSessionNetworkDispatcher.swift */,
+				9D13CA7629E5B253007D771B /* NetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		9D3208A829E5A7F100BF8C35 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +127,7 @@
 		9D3208B329E5A7F100BF8C35 /* BingeStream */ = {
 			isa = PBXGroup;
 			children = (
+				9D13CA6929E5B0BE007D771B /* Network */,
 				9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */,
 				9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */,
 				9D3208B829E5A7F100BF8C35 /* ViewController.swift */,
@@ -259,8 +288,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D3208B929E5A7F100BF8C35 /* ViewController.swift in Sources */,
+				9D13CA7729E5B253007D771B /* NetworkClient.swift in Sources */,
+				9D13CA7329E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift in Sources */,
+				9D13CA6F29E5B1A4007D771B /* URLRequestConvertible.swift in Sources */,
 				9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */,
+				9D13CA7129E5B1E2007D771B /* NetworkDispatcher.swift in Sources */,
+				9D13CA6B29E5B0C7007D771B /* Network.swift in Sources */,
 				9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */,
+				9D13CA7529E5B235007D771B /* URLSessionNetworkDispatcher.swift in Sources */,
+				9D13CA6D29E5B111007D771B /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

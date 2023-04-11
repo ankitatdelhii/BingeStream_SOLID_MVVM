@@ -23,6 +23,10 @@
 		9D13CA8829E5DB21007D771B /* DefaultDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA8729E5DB21007D771B /* DefaultDataRepo.swift */; };
 		9D13CA8C29E5EB40007D771B /* SaveDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA8B29E5EB40007D771B /* SaveDataRepo.swift */; };
 		9D13CA8E29E5EBBF007D771B /* SaveDataRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA8D29E5EBBF007D771B /* SaveDataRepoImpl.swift */; };
+		9D13CA9429E60393007D771B /* FetchDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9329E60393007D771B /* FetchDataCoordinator.swift */; };
+		9D13CA9929E604D7007D771B /* RemoteOnlyDataFetchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9829E604D7007D771B /* RemoteOnlyDataFetchRepository.swift */; };
+		9D13CA9B29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9A29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift */; };
+		9D13CA9F29E60608007D771B /* DataFetchingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9E29E60608007D771B /* DataFetchingStrategy.swift */; };
 		9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */; };
 		9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */; };
 		9D3208B929E5A7F100BF8C35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B829E5A7F100BF8C35 /* ViewController.swift */; };
@@ -68,6 +72,10 @@
 		9D13CA8729E5DB21007D771B /* DefaultDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataRepo.swift; sourceTree = "<group>"; };
 		9D13CA8B29E5EB40007D771B /* SaveDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataRepo.swift; sourceTree = "<group>"; };
 		9D13CA8D29E5EBBF007D771B /* SaveDataRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataRepoImpl.swift; sourceTree = "<group>"; };
+		9D13CA9329E60393007D771B /* FetchDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataCoordinator.swift; sourceTree = "<group>"; };
+		9D13CA9829E604D7007D771B /* RemoteOnlyDataFetchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteOnlyDataFetchRepository.swift; sourceTree = "<group>"; };
+		9D13CA9A29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteOnlyDataFetchRepositoryImpl.swift; sourceTree = "<group>"; };
+		9D13CA9E29E60608007D771B /* DataFetchingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchingStrategy.swift; sourceTree = "<group>"; };
 		9D3208B129E5A7F100BF8C35 /* BingeStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,12 +130,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		9D13CA7829E5D59D007D771B /* Models */ = {
+		9D13CA7829E5D59D007D771B /* api_models */ = {
 			isa = PBXGroup;
 			children = (
 				9D13CA7929E5D5A8007D771B /* NetworkError.swift */,
 			);
-			path = Models;
+			path = api_models;
 			sourceTree = "<group>";
 		};
 		9D13CA7B29E5D767007D771B /* LocalDataStorage */ = {
@@ -143,7 +151,7 @@
 		9D13CA8229E5DAF0007D771B /* DataRepository */ = {
 			isa = PBXGroup;
 			children = (
-				9D13CA8A29E5EB23007D771B /* save_data_locally */,
+				9D13CA9529E60480007D771B /* save */,
 				9D13CA8929E5E9CD007D771B /* fetch */,
 			);
 			path = DataRepository;
@@ -152,9 +160,8 @@
 		9D13CA8929E5E9CD007D771B /* fetch */ = {
 			isa = PBXGroup;
 			children = (
-				9D13CA8329E5DAF8007D771B /* DefaultDataRepository.swift */,
-				9D13CA8529E5DB04007D771B /* DefaultDataRepositoryImpl.swift */,
-				9D13CA8729E5DB21007D771B /* DefaultDataRepo.swift */,
+				9D13CA9729E604B6007D771B /* remote_only */,
+				9D13CA9629E6048E007D771B /* default */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -166,6 +173,83 @@
 				9D13CA8D29E5EBBF007D771B /* SaveDataRepoImpl.swift */,
 			);
 			path = save_data_locally;
+			sourceTree = "<group>";
+		};
+		9D13CA8F29E6013E007D771B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA9D29E605EA007D771B /* data_coordinator_model */,
+				9D13CA7829E5D59D007D771B /* api_models */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		9D13CA9029E601C8007D771B /* FrameworksAndDrivers */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA7B29E5D767007D771B /* LocalDataStorage */,
+				9D13CA6929E5B0BE007D771B /* Network */,
+			);
+			path = FrameworksAndDrivers;
+			sourceTree = "<group>";
+		};
+		9D13CA9129E60364007D771B /* InterfaceAdapters */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA8229E5DAF0007D771B /* DataRepository */,
+			);
+			path = InterfaceAdapters;
+			sourceTree = "<group>";
+		};
+		9D13CA9229E6037F007D771B /* DataCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA9C29E6057D007D771B /* fetch */,
+			);
+			path = DataCoordinators;
+			sourceTree = "<group>";
+		};
+		9D13CA9529E60480007D771B /* save */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA8A29E5EB23007D771B /* save_data_locally */,
+			);
+			path = save;
+			sourceTree = "<group>";
+		};
+		9D13CA9629E6048E007D771B /* default */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA8329E5DAF8007D771B /* DefaultDataRepository.swift */,
+				9D13CA8529E5DB04007D771B /* DefaultDataRepositoryImpl.swift */,
+				9D13CA8729E5DB21007D771B /* DefaultDataRepo.swift */,
+			);
+			path = default;
+			sourceTree = "<group>";
+		};
+		9D13CA9729E604B6007D771B /* remote_only */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA9829E604D7007D771B /* RemoteOnlyDataFetchRepository.swift */,
+				9D13CA9A29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift */,
+			);
+			path = remote_only;
+			sourceTree = "<group>";
+		};
+		9D13CA9C29E6057D007D771B /* fetch */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA9329E60393007D771B /* FetchDataCoordinator.swift */,
+			);
+			path = fetch;
+			sourceTree = "<group>";
+		};
+		9D13CA9D29E605EA007D771B /* data_coordinator_model */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CA9E29E60608007D771B /* DataFetchingStrategy.swift */,
+			);
+			path = data_coordinator_model;
 			sourceTree = "<group>";
 		};
 		9D3208A829E5A7F100BF8C35 = {
@@ -191,10 +275,10 @@
 		9D3208B329E5A7F100BF8C35 /* BingeStream */ = {
 			isa = PBXGroup;
 			children = (
-				9D13CA8229E5DAF0007D771B /* DataRepository */,
-				9D13CA7B29E5D767007D771B /* LocalDataStorage */,
-				9D13CA7829E5D59D007D771B /* Models */,
-				9D13CA6929E5B0BE007D771B /* Network */,
+				9D13CA9229E6037F007D771B /* DataCoordinators */,
+				9D13CA9129E60364007D771B /* InterfaceAdapters */,
+				9D13CA9029E601C8007D771B /* FrameworksAndDrivers */,
+				9D13CA8F29E6013E007D771B /* Entities */,
 				9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */,
 				9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */,
 				9D3208B829E5A7F100BF8C35 /* ViewController.swift */,
@@ -360,14 +444,18 @@
 				9D13CA7329E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift in Sources */,
 				9D13CA6F29E5B1A4007D771B /* URLRequestConvertible.swift in Sources */,
 				9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */,
+				9D13CA9B29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift in Sources */,
 				9D13CA8E29E5EBBF007D771B /* SaveDataRepoImpl.swift in Sources */,
 				9D13CA8629E5DB04007D771B /* DefaultDataRepositoryImpl.swift in Sources */,
 				9D13CA8829E5DB21007D771B /* DefaultDataRepo.swift in Sources */,
 				9D13CA7129E5B1E2007D771B /* NetworkDispatcher.swift in Sources */,
+				9D13CA9429E60393007D771B /* FetchDataCoordinator.swift in Sources */,
 				9D13CA8429E5DAF8007D771B /* DefaultDataRepository.swift in Sources */,
 				9D13CA6B29E5B0C7007D771B /* Network.swift in Sources */,
 				9D13CA8129E5D811007D771B /* LocalStore.swift in Sources */,
 				9D13CA7F29E5D7E9007D771B /* UserDefaultsLocalDataStorage.swift in Sources */,
+				9D13CA9929E604D7007D771B /* RemoteOnlyDataFetchRepository.swift in Sources */,
+				9D13CA9F29E60608007D771B /* DataFetchingStrategy.swift in Sources */,
 				9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */,
 				9D13CA7529E5B235007D771B /* URLSessionNetworkDispatcher.swift in Sources */,
 				9D13CA7A29E5D5A8007D771B /* NetworkError.swift in Sources */,

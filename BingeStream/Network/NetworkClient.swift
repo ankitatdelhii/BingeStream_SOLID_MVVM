@@ -7,7 +7,11 @@
 
 import Foundation
 
-class NetworkClient {
+protocol APiNetworkClient: AnyObject {
+    func request(endpoint: APIEndpoint, completion: @escaping (Result<Data, Error>) -> Void)
+}
+
+class NetworkClient: APiNetworkClient {
     private let dispatcher: NetworkDispatcher
 
     init(dispatcher: NetworkDispatcher) {

@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct MoviesModel: Codable {
+struct MoviesListModel: Codable {
     let id: String
     let name: String
+    let genre: MoviesGenre
+}
+
+enum MoviesGenre: Codable {
+    case Motivatioal
+    case Other
 }

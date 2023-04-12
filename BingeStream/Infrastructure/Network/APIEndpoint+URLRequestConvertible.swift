@@ -21,14 +21,14 @@ extension APIEndpoint: URLRequestConvertible {
 
         switch method {
         case .get:
-            if let parameters = parameters {
+            if let parameters = urlParameters {
                 let queryItems = parameters.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
                 var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
                 components?.queryItems = queryItems
                 request.url = components?.url
             }
         case .post:
-            if let parameters = parameters {
+            if let parameters = urlParameters {
                 let bodyData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
                 request.httpBody = bodyData
             }

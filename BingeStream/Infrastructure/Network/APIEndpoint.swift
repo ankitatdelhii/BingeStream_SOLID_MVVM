@@ -10,7 +10,7 @@ import Foundation
 struct APIEndpoint {
     let path: String
     let method: HTTPMethod
-    let parameters: [String: Any]?
+    let urlParameters: [String: Any]?
     let headers: [String: String]?
 }
 

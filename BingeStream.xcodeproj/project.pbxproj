@@ -27,6 +27,8 @@
 		9D13CA9929E604D7007D771B /* RemoteOnlyDataFetchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9829E604D7007D771B /* RemoteOnlyDataFetchRepository.swift */; };
 		9D13CA9B29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9A29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift */; };
 		9D13CA9F29E60608007D771B /* DataFetchingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CA9E29E60608007D771B /* DataFetchingStrategy.swift */; };
+		9D13CAA229E606EB007D771B /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CAA129E606EB007D771B /* MoviesRepository.swift */; };
+		9D13CAA429E60728007D771B /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13CAA329E60728007D771B /* MoviesModel.swift */; };
 		9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */; };
 		9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */; };
 		9D3208B929E5A7F100BF8C35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208B829E5A7F100BF8C35 /* ViewController.swift */; };
@@ -76,6 +78,8 @@
 		9D13CA9829E604D7007D771B /* RemoteOnlyDataFetchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteOnlyDataFetchRepository.swift; sourceTree = "<group>"; };
 		9D13CA9A29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteOnlyDataFetchRepositoryImpl.swift; sourceTree = "<group>"; };
 		9D13CA9E29E60608007D771B /* DataFetchingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchingStrategy.swift; sourceTree = "<group>"; };
+		9D13CAA129E606EB007D771B /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
+		9D13CAA329E60728007D771B /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		9D3208B129E5A7F100BF8C35 /* BingeStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,17 +184,18 @@
 			children = (
 				9D13CA9D29E605EA007D771B /* data_coordinator_model */,
 				9D13CA7829E5D59D007D771B /* api_models */,
+				9D13CAA329E60728007D771B /* MoviesModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		9D13CA9029E601C8007D771B /* FrameworksAndDrivers */ = {
+		9D13CA9029E601C8007D771B /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
 				9D13CA7B29E5D767007D771B /* LocalDataStorage */,
 				9D13CA6929E5B0BE007D771B /* Network */,
 			);
-			path = FrameworksAndDrivers;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		9D13CA9129E60364007D771B /* InterfaceAdapters */ = {
@@ -252,6 +257,14 @@
 			path = data_coordinator_model;
 			sourceTree = "<group>";
 		};
+		9D13CAA029E6068E007D771B /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				9D13CAA129E606EB007D771B /* MoviesRepository.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		9D3208A829E5A7F100BF8C35 = {
 			isa = PBXGroup;
 			children = (
@@ -275,10 +288,12 @@
 		9D3208B329E5A7F100BF8C35 /* BingeStream */ = {
 			isa = PBXGroup;
 			children = (
+				9D13CAA029E6068E007D771B /* UseCases */,
 				9D13CA9229E6037F007D771B /* DataCoordinators */,
 				9D13CA9129E60364007D771B /* InterfaceAdapters */,
-				9D13CA9029E601C8007D771B /* FrameworksAndDrivers */,
 				9D13CA8F29E6013E007D771B /* Entities */,
+				9DAF823929E7291600FEB3D7 /* Data */,
+				9D13CA9029E601C8007D771B /* Infrastructure */,
 				9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */,
 				9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */,
 				9D3208B829E5A7F100BF8C35 /* ViewController.swift */,
@@ -305,6 +320,29 @@
 				9D3208D729E5A7F300BF8C35 /* BingeStreamUITestsLaunchTests.swift */,
 			);
 			path = BingeStreamUITests;
+			sourceTree = "<group>";
+		};
+		9DAF823929E7291600FEB3D7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9DAF823A29E7299C00FEB3D7 /* PersistentStorages */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9DAF823A29E7299C00FEB3D7 /* PersistentStorages */ = {
+			isa = PBXGroup;
+			children = (
+				9DAF823B29E729CB00FEB3D7 /* MoviesListResponseStorage */,
+			);
+			path = PersistentStorages;
+			sourceTree = "<group>";
+		};
+		9DAF823B29E729CB00FEB3D7 /* MoviesListResponseStorage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MoviesListResponseStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +480,7 @@
 				9D13CA7729E5B253007D771B /* NetworkClient.swift in Sources */,
 				9D13CA8C29E5EB40007D771B /* SaveDataRepo.swift in Sources */,
 				9D13CA7329E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift in Sources */,
+				9D13CAA229E606EB007D771B /* MoviesRepository.swift in Sources */,
 				9D13CA6F29E5B1A4007D771B /* URLRequestConvertible.swift in Sources */,
 				9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */,
 				9D13CA9B29E604FE007D771B /* RemoteOnlyDataFetchRepositoryImpl.swift in Sources */,
@@ -459,6 +498,7 @@
 				9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */,
 				9D13CA7529E5B235007D771B /* URLSessionNetworkDispatcher.swift in Sources */,
 				9D13CA7A29E5D5A8007D771B /* NetworkError.swift in Sources */,
+				9D13CAA429E60728007D771B /* MoviesModel.swift in Sources */,
 				9D13CA6D29E5B111007D771B /* APIEndpoint.swift in Sources */,
 				9D13CA7D29E5D7DB007D771B /* LocalDataStorage.swift in Sources */,
 			);

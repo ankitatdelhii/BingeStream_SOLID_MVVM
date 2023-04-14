@@ -37,6 +37,11 @@
 		9D87FD3F29E9CEC60063ECFE /* MoviesListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D87FD3E29E9CEC60063ECFE /* MoviesListViewController.storyboard */; };
 		9D87FD4129E9CECF0063ECFE /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4029E9CECF0063ECFE /* MoviesListViewController.swift */; };
 		9D87FD4329E9CFB50063ECFE /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4229E9CFB50063ECFE /* MoviesListViewModel.swift */; };
+		9D87FD4529E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4429E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift */; };
+		9D87FD4829E9D93C0063ECFE /* NasaImagesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4729E9D93C0063ECFE /* NasaImagesListModel.swift */; };
+		9D87FD4A29E9DA560063ECFE /* NasaImagesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */; };
+		9D87FD4C29E9DB490063ECFE /* NasaImagesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */; };
+		9D87FD4E29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +96,11 @@
 		9D87FD3E29E9CEC60063ECFE /* MoviesListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoviesListViewController.storyboard; sourceTree = "<group>"; };
 		9D87FD4029E9CECF0063ECFE /* MoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewController.swift; sourceTree = "<group>"; };
 		9D87FD4229E9CFB50063ECFE /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
+		9D87FD4429E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NasaRoverResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		9D87FD4729E9D93C0063ECFE /* NasaImagesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListModel.swift; sourceTree = "<group>"; };
+		9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListUseCase.swift; sourceTree = "<group>"; };
+		9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListRepository.swift; sourceTree = "<group>"; };
+		9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +142,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		9D13CA7829E5D59D007D771B /* api_models */ = {
-			isa = PBXGroup;
-			children = (
-				9D13CA7929E5D5A8007D771B /* NetworkError.swift */,
-			);
-			path = api_models;
-			sourceTree = "<group>";
-		};
 		9D13CA7B29E5D767007D771B /* LocalDataStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,8 +155,8 @@
 		9D13CA8F29E6013E007D771B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9D13CA7829E5D59D007D771B /* api_models */,
 				9D13CAA329E60728007D771B /* MoviesModel.swift */,
+				9D87FD4729E9D93C0063ECFE /* NasaImagesListModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -235,6 +237,8 @@
 		9D633A3029E73EA0006A0D7D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9D87FD4629E9D6190063ECFE /* DTO+Mapping */,
+				9D13CA7929E5D5A8007D771B /* NetworkError.swift */,
 				9D633A3129E73EAB006A0D7D /* APIEndpoints.swift */,
 			);
 			path = Network;
@@ -244,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				9D633A3929E7462B006A0D7D /* MoviesListRepositoryImpl.swift */,
+				9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				9D633A3729E74588006A0D7D /* MoviesListRepository.swift */,
+				9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				9D633A3C29E74AC1006A0D7D /* MotivationalMoviesUseCase.swift */,
+				9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -298,6 +305,14 @@
 				9D87FD4229E9CFB50063ECFE /* MoviesListViewModel.swift */,
 			);
 			path = movies_list;
+			sourceTree = "<group>";
+		};
+		9D87FD4629E9D6190063ECFE /* DTO+Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				9D87FD4429E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift */,
+			);
+			path = "DTO+Mapping";
 			sourceTree = "<group>";
 		};
 		9DAF823929E7291600FEB3D7 /* Data */ = {
@@ -458,13 +473,18 @@
 				9D633A3229E73EAB006A0D7D /* APIEndpoints.swift in Sources */,
 				9D633A3A29E7462B006A0D7D /* MoviesListRepositoryImpl.swift in Sources */,
 				9D3208B729E5A7F100BF8C35 /* SceneDelegate.swift in Sources */,
+				9D87FD4A29E9DA560063ECFE /* NasaImagesListUseCase.swift in Sources */,
 				9D13CA7529E5B235007D771B /* URLSessionNetworkDispatcher.swift in Sources */,
 				9D13CA7A29E5D5A8007D771B /* NetworkError.swift in Sources */,
+				9D87FD4529E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift in Sources */,
+				9D87FD4E29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift in Sources */,
 				9D87FD4329E9CFB50063ECFE /* MoviesListViewModel.swift in Sources */,
 				9D13CAA429E60728007D771B /* MoviesModel.swift in Sources */,
 				9D633A3F29E74F64006A0D7D /* LocalDataCoordinatorImpl.swift in Sources */,
 				9D13CA6D29E5B111007D771B /* APIEndpoint.swift in Sources */,
+				9D87FD4829E9D93C0063ECFE /* NasaImagesListModel.swift in Sources */,
 				9D13CA7D29E5D7DB007D771B /* LocalDataStorage.swift in Sources */,
+				9D87FD4C29E9DB490063ECFE /* NasaImagesListRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

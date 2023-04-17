@@ -34,7 +34,6 @@
 		9D633A3A29E7462B006A0D7D /* MoviesListRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D633A3929E7462B006A0D7D /* MoviesListRepositoryImpl.swift */; };
 		9D633A3D29E74AC1006A0D7D /* MotivationalMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D633A3C29E74AC1006A0D7D /* MotivationalMoviesUseCase.swift */; };
 		9D633A3F29E74F64006A0D7D /* LocalDataCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D633A3E29E74F64006A0D7D /* LocalDataCoordinatorImpl.swift */; };
-		9D87FD3F29E9CEC60063ECFE /* MoviesListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D87FD3E29E9CEC60063ECFE /* MoviesListViewController.storyboard */; };
 		9D87FD4129E9CECF0063ECFE /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4029E9CECF0063ECFE /* MoviesListViewController.swift */; };
 		9D87FD4329E9CFB50063ECFE /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4229E9CFB50063ECFE /* MoviesListViewModel.swift */; };
 		9D87FD4529E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4429E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift */; };
@@ -42,6 +41,7 @@
 		9D87FD4A29E9DA560063ECFE /* NasaImagesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */; };
 		9D87FD4C29E9DB490063ECFE /* NasaImagesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */; };
 		9D87FD4E29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */; };
+		9DF4286029EDF13A00D97347 /* MoviesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF4285F29EDF13A00D97347 /* MoviesListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +93,6 @@
 		9D633A3929E7462B006A0D7D /* MoviesListRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListRepositoryImpl.swift; sourceTree = "<group>"; };
 		9D633A3C29E74AC1006A0D7D /* MotivationalMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationalMoviesUseCase.swift; sourceTree = "<group>"; };
 		9D633A3E29E74F64006A0D7D /* LocalDataCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataCoordinatorImpl.swift; sourceTree = "<group>"; };
-		9D87FD3E29E9CEC60063ECFE /* MoviesListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoviesListViewController.storyboard; sourceTree = "<group>"; };
 		9D87FD4029E9CECF0063ECFE /* MoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewController.swift; sourceTree = "<group>"; };
 		9D87FD4229E9CFB50063ECFE /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
 		9D87FD4429E9D3010063ECFE /* NasaRoverResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NasaRoverResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListUseCase.swift; sourceTree = "<group>"; };
 		9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListRepository.swift; sourceTree = "<group>"; };
 		9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListRepositoryImpl.swift; sourceTree = "<group>"; };
+		9DF4285F29EDF13A00D97347 /* MoviesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,9 +300,9 @@
 		9D87FD3D29E9CE9A0063ECFE /* movies_list */ = {
 			isa = PBXGroup;
 			children = (
-				9D87FD3E29E9CEC60063ECFE /* MoviesListViewController.storyboard */,
 				9D87FD4029E9CECF0063ECFE /* MoviesListViewController.swift */,
 				9D87FD4229E9CFB50063ECFE /* MoviesListViewModel.swift */,
+				9DF4285F29EDF13A00D97347 /* MoviesListViewController.xib */,
 			);
 			path = movies_list;
 			sourceTree = "<group>";
@@ -429,10 +429,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D87FD3F29E9CEC60063ECFE /* MoviesListViewController.storyboard in Resources */,
 				9D3208C129E5A7F200BF8C35 /* LaunchScreen.storyboard in Resources */,
 				9D3208BE29E5A7F200BF8C35 /* Assets.xcassets in Resources */,
 				9D3208BC29E5A7F100BF8C35 /* Main.storyboard in Resources */,
+				9DF4286029EDF13A00D97347 /* MoviesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +666,7 @@
 				INFOPLIST_FILE = BingeStream/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = MoviesListViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,7 +694,7 @@
 				INFOPLIST_FILE = BingeStream/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = MoviesListViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

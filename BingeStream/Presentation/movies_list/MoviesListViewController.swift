@@ -18,16 +18,10 @@ class MoviesListViewController: UIViewController {
     
     //MARK: Lifecycle
     
-    class func instance() -> MoviesListViewController {
+    class func instance(viewModel: MoviesListViewModel) -> MoviesListViewController {
         
         let controller = MoviesListViewController.init(nibName: "MoviesListViewController", bundle: nil)
-        
-        let localDataCordinator = LocalDataCoordinatorImpl(localDataStorage: UserDefaultsLocalDataStorage())
-        let nasaImagesListRepo = NasaImagesListRepositoryImpl(localDataCordinator: localDataCordinator, networkClient: NetworkClient(dispatcher: URLSessionNetworkDispatcher()))
-        let nasaImagesListUseCase = NasaImagesListUseCaseImpl(nasaImagesListRepository: nasaImagesListRepo)
-        let viewmodel = MoviesListViewModel(nasaImagesListUseCase: nasaImagesListUseCase)
-        
-        controller.viewmodel = viewmodel
+        controller.viewmodel = viewModel
         return controller
     }
     

@@ -28,6 +28,8 @@
 		9D3208CC29E5A7F300BF8C35 /* BingeStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208CB29E5A7F300BF8C35 /* BingeStreamTests.swift */; };
 		9D3208D629E5A7F300BF8C35 /* BingeStreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208D529E5A7F300BF8C35 /* BingeStreamUITests.swift */; };
 		9D3208D829E5A7F300BF8C35 /* BingeStreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3208D729E5A7F300BF8C35 /* BingeStreamUITestsLaunchTests.swift */; };
+		9D4D74A929EF23630070394A /* MoviesListDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4D74A829EF23630070394A /* MoviesListDIContainer.swift */; };
+		9D4D74AB29EF2B2F0070394A /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4D74AA29EF2B2F0070394A /* AppDIContainer.swift */; };
 		9D633A2F29E734F7006A0D7D /* LocalDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D633A2E29E734F7006A0D7D /* LocalDataCoordinator.swift */; };
 		9D633A3229E73EAB006A0D7D /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D633A3129E73EAB006A0D7D /* APIEndpoints.swift */; };
 		9D633A3829E74588006A0D7D /* MoviesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D633A3729E74588006A0D7D /* MoviesListRepository.swift */; };
@@ -87,6 +89,8 @@
 		9D3208D129E5A7F300BF8C35 /* BingeStreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BingeStreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3208D529E5A7F300BF8C35 /* BingeStreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeStreamUITests.swift; sourceTree = "<group>"; };
 		9D3208D729E5A7F300BF8C35 /* BingeStreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeStreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9D4D74A829EF23630070394A /* MoviesListDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListDIContainer.swift; sourceTree = "<group>"; };
+		9D4D74AA29EF2B2F0070394A /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		9D633A2E29E734F7006A0D7D /* LocalDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataCoordinator.swift; sourceTree = "<group>"; };
 		9D633A3129E73EAB006A0D7D /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		9D633A3729E74588006A0D7D /* MoviesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListRepository.swift; sourceTree = "<group>"; };
@@ -193,12 +197,11 @@
 		9D3208B329E5A7F100BF8C35 /* BingeStream */ = {
 			isa = PBXGroup;
 			children = (
+				9D4D74A629EF23280070394A /* Application */,
 				9D87FD3C29E9CE8E0063ECFE /* Presentation */,
 				9D633A3429E7454F006A0D7D /* Domain */,
 				9DAF823929E7291600FEB3D7 /* Data */,
 				9D13CA9029E601C8007D771B /* Infrastructure */,
-				9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */,
-				9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */,
 				9D3208B829E5A7F100BF8C35 /* ViewController.swift */,
 				9D3208BA29E5A7F100BF8C35 /* Main.storyboard */,
 				9D3208BD29E5A7F200BF8C35 /* Assets.xcassets */,
@@ -223,6 +226,25 @@
 				9D3208D729E5A7F300BF8C35 /* BingeStreamUITestsLaunchTests.swift */,
 			);
 			path = BingeStreamUITests;
+			sourceTree = "<group>";
+		};
+		9D4D74A629EF23280070394A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9D4D74A729EF23330070394A /* DI Container */,
+				9D3208B429E5A7F100BF8C35 /* AppDelegate.swift */,
+				9D3208B629E5A7F100BF8C35 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9D4D74A729EF23330070394A /* DI Container */ = {
+			isa = PBXGroup;
+			children = (
+				9D4D74A829EF23630070394A /* MoviesListDIContainer.swift */,
+				9D4D74AA29EF2B2F0070394A /* AppDIContainer.swift */,
+			);
+			path = "DI Container";
 			sourceTree = "<group>";
 		};
 		9D633A2D29E734E2006A0D7D /* LocalDataCoordinator */ = {
@@ -459,6 +481,7 @@
 			files = (
 				9D3208B929E5A7F100BF8C35 /* ViewController.swift in Sources */,
 				9D13CA7729E5B253007D771B /* NetworkClient.swift in Sources */,
+				9D4D74AB29EF2B2F0070394A /* AppDIContainer.swift in Sources */,
 				9D13CA7329E5B219007D771B /* APIEndpoint+URLRequestConvertible.swift in Sources */,
 				9D13CA6F29E5B1A4007D771B /* URLRequestConvertible.swift in Sources */,
 				9D3208B529E5A7F100BF8C35 /* AppDelegate.swift in Sources */,
@@ -467,6 +490,7 @@
 				9D633A2F29E734F7006A0D7D /* LocalDataCoordinator.swift in Sources */,
 				9D633A3829E74588006A0D7D /* MoviesListRepository.swift in Sources */,
 				9D13CA6B29E5B0C7007D771B /* Network.swift in Sources */,
+				9D4D74A929EF23630070394A /* MoviesListDIContainer.swift in Sources */,
 				9D13CA8129E5D811007D771B /* LocalStore.swift in Sources */,
 				9D87FD4129E9CECF0063ECFE /* MoviesListViewController.swift in Sources */,
 				9D13CA7F29E5D7E9007D771B /* UserDefaultsLocalDataStorage.swift in Sources */,

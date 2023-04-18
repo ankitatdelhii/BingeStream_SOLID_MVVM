@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//DTO means Data Transfer Object
 struct NasaRoverResponseDTO: Codable {
     let photos : [Photos]?
 }

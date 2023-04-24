@@ -17,14 +17,14 @@ final class MoviesListRepositoryImpl {
     init(localDataCordinator: LocalDataCoordinator, networkClient: APiNetworkClient) {
         self.localDataCordinator = localDataCordinator
         self.networkClient = networkClient
-        self.endPoint = APIEndpoints().getMoviesList()
+        self.endPoint = APIEndpoints().getMoviesList(page: 1, limit: 5)
     }
     
 }
 
 extension MoviesListRepositoryImpl: MoviesListRepository {
     
-    func fetchMovieList(cached: (Result<[MoviesListModel], Error>) -> Void, api: @escaping (Result<[MoviesListModel], Error>) -> Void) {
+    func fetchMovieList(cached: (Result<[MoviesListDTO], Error>) -> Void, api: @escaping (Result<[MoviesListDTO], Error>) -> Void) {
         
         localDataCordinator.fetch(forKey: KEY_MOVIES_REPOSITORY, completion: cached)
         networkClient.request(endpoint: endPoint) { result in
@@ -32,7 +32,7 @@ extension MoviesListRepositoryImpl: MoviesListRepository {
             case .success(let data):
                 //Todo : Separate JSON Decoder
                 do {
-                    let apiData = try JSONDecoder().decode([MoviesListModel].self, from: data)
+                    let apiData = try JSONDecoder().decode([MoviesListDTO].self, from: data)
                     api(.success(apiData))
                 } catch {
                     api(.failure(error))

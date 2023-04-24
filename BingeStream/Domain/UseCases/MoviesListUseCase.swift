@@ -7,13 +7,12 @@
 
 import Foundation
 
-protocol MotivationalMoviesUseCase {
-    associatedtype MoviesList = (Result<[MoviesListModel], Error>) -> Void
-    func execute(cachedData: MoviesList, apiData: MoviesList)
+protocol MoviesListUseCase {
+    func execute(cachedData: (Result<[FilmsListModel], Error>) -> Void, apiData: @escaping (Result<[FilmsListModel], Error>) -> Void)
 }
 
 //MARK : - MotivationalMoviesUseCase
-final class MotivationalMoviesUseCaseImpl {
+final class MoviesListUseCaseImpl {
     
     private let moviesListRepository: MoviesListRepository
     
@@ -21,15 +20,15 @@ final class MotivationalMoviesUseCaseImpl {
         self.moviesListRepository = moviesListRepository
     }
     
-    private func filterMotivationalMovies(movies: [MoviesListModel]) -> [MoviesListModel] {
-        return movies.filter({ $0.genre == .Motivatioal })
+    private func convertToDomain(movies: [MoviesListDTO]) -> [FilmsListModel] {
+        return movies.map { $0.toDomain() }
     }
     
 }
 
-extension MotivationalMoviesUseCaseImpl: MotivationalMoviesUseCase {
+extension MoviesListUseCaseImpl: MoviesListUseCase {
     
-    typealias MoviesList = (Result<[MoviesListModel], Error>) -> Void
+    typealias MoviesList = (Result<[FilmsListModel], Error>) -> Void
     
     func execute(cachedData: MoviesList, apiData: @escaping MoviesList) {
         
@@ -37,8 +36,8 @@ extension MotivationalMoviesUseCaseImpl: MotivationalMoviesUseCase {
             switch cachedResult {
                 
             case .success(let moviesModel):
-                let motivationalMovies = self.filterMotivationalMovies(movies: moviesModel)
-                cachedData(.success(motivationalMovies))
+                let filmsModel = self.convertToDomain(movies: moviesModel)
+                cachedData(.success(filmsModel))
             case .failure(let error):
                 cachedData(.failure(error))
             }
@@ -46,8 +45,8 @@ extension MotivationalMoviesUseCaseImpl: MotivationalMoviesUseCase {
             switch apiResult {
                 
             case .success(let moviesModel):
-                let motivationalMovies = self.filterMotivationalMovies(movies: moviesModel)
-                apiData(.success(motivationalMovies))
+                let filmsModel = self.convertToDomain(movies: moviesModel)
+                apiData(.success(filmsModel))
             case .failure(let error):
                 apiData(.failure(error))
             }

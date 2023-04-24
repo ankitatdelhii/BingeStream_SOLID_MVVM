@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MoviesListViewController: UIViewController {
+final class MoviesListViewController: UIViewController {
     
     //MARK: Outelets
+    @IBOutlet private weak var moviesCollection: UICollectionView!
     
     //MARK: Properties
     private var viewmodel: MoviesListViewModel!

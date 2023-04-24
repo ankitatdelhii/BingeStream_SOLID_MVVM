@@ -26,19 +26,19 @@ final class MovieListDIContainerImpl: MovieListDIContainer {
     
     
     // MARK: - Repositories
-    private func makeNasaImagesListReporistory() -> NasaImagesListRepository {
-        return NasaImagesListRepositoryImpl(localDataCordinator: dependencies.localDataCoordinator, networkClient: dependencies.networkClient)
+    private func makeMoviesListRepository() -> MoviesListRepository {
+        return MoviesListRepositoryImpl(localDataCordinator: dependencies.localDataCoordinator, networkClient: dependencies.networkClient)
     }
     
     
     // MARK: -  Use Cases
-    private func makeNasaImagesListUseCase() -> NasaImagesListUseCase {
-        return NasaImagesListUseCaseImpl(nasaImagesListRepository: makeNasaImagesListReporistory())
+    private func makeMoviesListUseCase() -> MoviesListUseCase {
+        return MoviesListUseCaseImpl(moviesListRepository: makeMoviesListRepository())
     }
     
     // MARK: -  MoviesList ViewModel
     private func makeMoviesListViewModel() -> MoviesListViewModel {
-        return MoviesListViewModel(nasaImagesListUseCase: makeNasaImagesListUseCase())
+        return MoviesListViewModel(moviesListUseCase: makeMoviesListUseCase())
     }
     
     // MARK: - Movies List

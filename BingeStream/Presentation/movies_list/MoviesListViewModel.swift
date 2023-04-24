@@ -7,16 +7,34 @@
 
 import Foundation
 
-class MoviesListViewModel {
+final class MoviesListViewModel {
     
-    let nasaImagesListUseCase: NasaImagesListUseCase
+    let moviesListUseCase: MoviesListUseCase
     
-    init(nasaImagesListUseCase: NasaImagesListUseCase) {
-        self.nasaImagesListUseCase = nasaImagesListUseCase
+    init(moviesListUseCase: MoviesListUseCase) {
+        self.moviesListUseCase = moviesListUseCase
     }
     
     func executeUseCase() {
-        nasaImagesListUseCase.execute { cachedResult in
+//        nasaImagesListUseCase.execute { cachedResult in
+//            switch cachedResult {
+//
+//            case .success(let cachedData):
+//                print("Got Cached Data \(cachedData)")
+//            case .failure(let failure):
+//                print("Got Cached Data failure \(failure)")
+//            }
+//        } apiImages: { apiResult in
+//            switch apiResult {
+//
+//            case .success(let apiData):
+//                print("Got Api Data \(apiData)")
+//            case .failure(let failure):
+//                print("Got Api Data failure \(failure)")
+//            }
+//        }
+        
+        moviesListUseCase.execute { cachedResult in
             switch cachedResult {
                 
             case .success(let cachedData):
@@ -24,15 +42,17 @@ class MoviesListViewModel {
             case .failure(let failure):
                 print("Got Cached Data failure \(failure)")
             }
-        } apiImages: { apiResult in
+        } apiData: { apiResult in
+            
             switch apiResult {
-                
             case .success(let apiData):
                 print("Got Api Data \(apiData)")
             case .failure(let failure):
                 print("Got Api Data failure \(failure)")
             }
+            
         }
+
 
     }
     

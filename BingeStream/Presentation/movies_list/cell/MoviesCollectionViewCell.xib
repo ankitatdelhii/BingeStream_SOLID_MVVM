@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesCollectionViewCell" id="gTV-IL-0wX" customClass="MoviesCollectionViewCell" customModule="BingeStream" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Shawshank Redemption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P17-6h-WVR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actors -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQp-ak-AJa">
+                        <rect key="frame" x="0.0" y="27" width="66.333333333333329" height="22"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Tim Robbins&quot;, &quot;Morgan Freeman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8a-IK-mJI">
+                        <rect key="frame" x="72.333333333333343" y="27" width="299.66666666666663" height="22"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-Kt-R4m">
+                        <rect key="frame" x="0.0" y="52" width="80" height="22"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Frank Darabont" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOz-Oq-5DS">
+                        <rect key="frame" x="86" y="52" width="289" height="22"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AM-4N-01f">
+                        <rect key="frame" x="0.0" y="77" width="107.33333333333333" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="107.33" id="82H-Fc-yXM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqZ-Td-Qlk">
+                        <rect key="frame" x="113.33333333333334" y="77" width="258.66666666666663" height="67"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="bqZ-Td-Qlk" firstAttribute="top" secondItem="fOz-Oq-5DS" secondAttribute="bottom" constant="3" id="2Ga-Ll-cJK"/>
+                <constraint firstItem="fOz-Oq-5DS" firstAttribute="leading" secondItem="pPV-Kt-R4m" secondAttribute="trailing" constant="6" id="6AF-PY-ePF"/>
+                <constraint firstAttribute="trailing" secondItem="O8a-IK-mJI" secondAttribute="trailing" constant="3" id="7Ix-6i-TKM"/>
+                <constraint firstAttribute="bottom" secondItem="bqZ-Td-Qlk" secondAttribute="bottom" constant="6" id="E3e-KG-cwM"/>
+                <constraint firstItem="O8a-IK-mJI" firstAttribute="top" secondItem="P17-6h-WVR" secondAttribute="bottom" constant="3" id="IdO-At-ROh"/>
+                <constraint firstItem="pPV-Kt-R4m" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IkC-mk-vEE"/>
+                <constraint firstItem="O8a-IK-mJI" firstAttribute="leading" secondItem="dQp-ak-AJa" secondAttribute="trailing" constant="6" id="Mim-nq-56C"/>
+                <constraint firstItem="dQp-ak-AJa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ntg-TO-BoC"/>
+                <constraint firstAttribute="trailing" secondItem="fOz-Oq-5DS" secondAttribute="trailing" id="O0T-8u-QiJ"/>
+                <constraint firstAttribute="trailing" secondItem="bqZ-Td-Qlk" secondAttribute="trailing" constant="3" id="OVw-3j-kEc"/>
+                <constraint firstItem="bqZ-Td-Qlk" firstAttribute="leading" secondItem="5AM-4N-01f" secondAttribute="trailing" constant="6" id="U5R-zr-bKj"/>
+                <constraint firstItem="P17-6h-WVR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a2K-PB-SGh"/>
+                <constraint firstItem="P17-6h-WVR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="b3c-eB-xVT"/>
+                <constraint firstItem="fOz-Oq-5DS" firstAttribute="top" secondItem="O8a-IK-mJI" secondAttribute="bottom" constant="3" id="bzB-n5-5J5"/>
+                <constraint firstItem="dQp-ak-AJa" firstAttribute="top" secondItem="P17-6h-WVR" secondAttribute="bottom" constant="3" id="fdn-tv-ROe"/>
+                <constraint firstItem="5AM-4N-01f" firstAttribute="top" secondItem="pPV-Kt-R4m" secondAttribute="bottom" constant="3" id="fm0-Oq-jMP"/>
+                <constraint firstItem="5AM-4N-01f" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hmC-yj-haq"/>
+                <constraint firstAttribute="trailing" secondItem="P17-6h-WVR" secondAttribute="trailing" id="jd9-9Z-Qz7"/>
+                <constraint firstItem="pPV-Kt-R4m" firstAttribute="top" secondItem="dQp-ak-AJa" secondAttribute="bottom" constant="3" id="wSH-y2-G2a"/>
+            </constraints>
+            <connections>
+                <outlet property="actorLbl" destination="O8a-IK-mJI" id="eO3-Ya-34t"/>
+                <outlet property="descriptionLbl" destination="bqZ-Td-Qlk" id="lwn-kT-ryF"/>
+                <outlet property="directorLbl" destination="fOz-Oq-5DS" id="DAw-a3-x6O"/>
+                <outlet property="movieTitleLbl" destination="P17-6h-WVR" id="0Ia-gy-dzB"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="20"/>
+        </collectionViewCell>
+    </objects>
+</document>

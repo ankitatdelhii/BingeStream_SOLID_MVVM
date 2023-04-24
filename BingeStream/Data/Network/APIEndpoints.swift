@@ -9,9 +9,9 @@ import Foundation
 
 struct APIEndpoints {
     //rm Add Base URL Path with Config
-    func getMoviesList() -> APIEndpoint {
+    func getMoviesList(page: Int, limit: Int) -> APIEndpoint {
         return APIEndpoint(
-            path: "https:example.com",
+            path: "https://myeasytuts.com/movie_list/api/v1/movies_page_\(page)_limit_\(limit).json",
             method: .get,
             urlParameters: ["list": 2],
             headers: ["Content-Type": "json"]

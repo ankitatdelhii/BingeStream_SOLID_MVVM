@@ -32,7 +32,7 @@ extension APIEndpoint: URLRequestConvertible {
 //                components?.queryItems = queryItems
 //                request.url = components?.url
 //            }
-            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
             request.url = components?.url
         case .post:
             if let parameters = urlParameters {

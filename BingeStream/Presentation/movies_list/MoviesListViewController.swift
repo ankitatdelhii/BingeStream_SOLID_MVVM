@@ -28,7 +28,7 @@ final class MoviesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewmodel.executeUseCase()
+        viewmodel.getMovies()
     }
     
     //MARK: Helpers

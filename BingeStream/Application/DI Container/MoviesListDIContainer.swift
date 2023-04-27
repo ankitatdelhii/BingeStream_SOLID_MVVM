@@ -37,15 +37,23 @@ final class MovieListDIContainerImpl: MovieListDIContainer {
     }
     
     // MARK: -  MoviesList ViewModel
-    private func makeMoviesListViewModel() -> MoviesListViewModel {
-        return MoviesListViewModel(moviesListUseCase: makeMoviesListUseCase())
+    private func makeMoviesListViewModel(movieListOutput: MoviesListViewModelOutput) -> MoviesListViewModel {
+        return MoviesListViewModel(moviesListUseCase: makeMoviesListUseCase(), outputDelegate: movieListOutput)
+    }
+    
+    //MARK: MovieListController
+    private func makeMovieListController() -> MoviesListViewController {
+        let controller = MoviesListViewController.init(nibName: MoviesListViewController.controllerName, bundle: nil)
+        
+        return controller
     }
     
     // MARK: - Movies List
     func makeMovieListViewController() -> MoviesListViewController {
-        let controller = MoviesListViewController.instance(viewModel: makeMoviesListViewModel())
+        let controlller = makeMovieListController()
+        let viewController = MoviesListViewController.instance(controller: controlller, viewModel: makeMoviesListViewModel(movieListOutput: controlller))
         
-        return controller
+        return viewController
     }
     
 }

@@ -13,15 +13,14 @@ final class MoviesListViewController: UIViewController {
     @IBOutlet private weak var moviesCollection: UICollectionView!
     
     //MARK: Properties
+    static let controllerName = String(describing: MoviesListViewController.self)
     private var viewmodel: MoviesListViewModel!
     
     //MARK: UI Properties
     
     //MARK: Lifecycle
     
-    class func instance(viewModel: MoviesListViewModel) -> MoviesListViewController {
-        
-        let controller = MoviesListViewController.init(nibName: "MoviesListViewController", bundle: nil)
+    class func instance(controller: MoviesListViewController, viewModel: MoviesListViewModel) -> MoviesListViewController {
         controller.viewmodel = viewModel
         return controller
     }
@@ -29,19 +28,25 @@ final class MoviesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindCollection()
-        viewmodel.getMovies()
     }
     
     //MARK: Helpers
     private func bindCollection() {
-        viewmodel.moviesListUpdate = { models in
-            print("Got Models \(models)")
-        }
+        
     }
     
     
     //MARK: Selectors
     
     
+    
+}
+
+//MARK: ViewModel Output Delegate
+extension MoviesListViewController: MoviesListViewModelOutput {
+    
+    func didFetchMovies() {
+        print("Got movies in VC \(viewmodel.filmsModel)")
+    }
     
 }

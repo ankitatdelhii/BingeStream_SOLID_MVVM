@@ -7,39 +7,40 @@
 
 import Foundation
 
-protocol MoviesListViewModelInput {
-    func getMovies()
+protocol MoviesListViewModelInputProperties {
+    //All are private set and weak in case of delegates
+    var outputDelegate: MoviesListViewModelOutput? { get }
+    var filmsModel: [FilmsListModel] { get }
 }
 
-protocol MoviesListViewModelOutput {
-    var moviesListModel: [FilmsListModel] { get set }
+protocol MoviesListViewModelInputMethods {
 }
 
-typealias MoviesListViewModelOutcomes = MoviesListViewModelInput & MoviesListViewModelOutput
+protocol MoviesListViewModelOutput: AnyObject {
+    func didFetchMovies()
+}
+
+typealias MoviesListViewModelOutcomes = MoviesListViewModelInputProperties & MoviesListViewModelInputMethods
 
 final class MoviesListViewModel: MoviesListViewModelOutcomes {
     
     //MARK: Private Properties
-    private let moviesListUseCase: MoviesListUseCase
-    private var filmsModel = [FilmsListModel]() {
+    private(set) weak var outputDelegate: MoviesListViewModelOutput?
+    private(set) var filmsModel = [FilmsListModel]() {
         didSet {
-            moviesListModel = filmsModel
+            outputDelegate?.didFetchMovies()
         }
     }
     
-    //MARK: Public Properties
-    var moviesListModel: [FilmsListModel] {
-        get {
-            return filmsModel
-        }
-        set {
-            filmsModel = newValue
-        }
-    }
+    //Use Cases
+    private let moviesListUseCase: MoviesListUseCase
+    
     
     //MARK: Lifecycle
-    init(moviesListUseCase: MoviesListUseCase) {
+    init(moviesListUseCase: MoviesListUseCase, outputDelegate: MoviesListViewModelOutput) {
         self.moviesListUseCase = moviesListUseCase
+        self.outputDelegate = outputDelegate
+        executeMoviesUseCase()
     }
     
     //MARK: Private Helpers
@@ -70,11 +71,8 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
     
 }
 
-//MARK : - ViewController Input
+//MARK : - ViewController Input Methods
 extension MoviesListViewModel {
     
-    func getMovies() {
-        executeMoviesUseCase()
-    }
     
 }

@@ -12,7 +12,7 @@ protocol MoviesListViewModelInput {
 }
 
 protocol MoviesListViewModelOutput {
-    var moviesListUpdate: (([FilmsListModel]) -> Void)? { get }
+    var moviesListModel: [FilmsListModel] { get set }
 }
 
 typealias MoviesListViewModelOutcomes = MoviesListViewModelInput & MoviesListViewModelOutput
@@ -21,14 +21,28 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
     
     //MARK: Private Properties
     private let moviesListUseCase: MoviesListUseCase
+    private var filmsModel = [FilmsListModel]() {
+        didSet {
+            moviesListModel = filmsModel
+        }
+    }
     
-    //MARK: Binders
-    var moviesListUpdate: (([FilmsListModel]) -> Void)?
+    //MARK: Public Properties
+    var moviesListModel: [FilmsListModel] {
+        get {
+            return filmsModel
+        }
+        set {
+            filmsModel = newValue
+        }
+    }
     
+    //MARK: Lifecycle
     init(moviesListUseCase: MoviesListUseCase) {
         self.moviesListUseCase = moviesListUseCase
     }
     
+    //MARK: Private Helpers
     private func executeMoviesUseCase() {
         moviesListUseCase.execute { cachedResult in
             switch cachedResult {
@@ -42,7 +56,8 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
             
             switch apiResult {
             case .success(let apiData):
-                print("Got Api Data \(apiData)")
+//                print("Got Api Data \(apiData)")
+                self.filmsModel = apiData
             case .failure(let failure):
                 print("Got Api Data failure \(failure)")
             }

@@ -28,10 +28,17 @@ final class MoviesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindCollection()
         viewmodel.getMovies()
     }
     
     //MARK: Helpers
+    private func bindCollection() {
+        viewmodel.moviesListUpdate = { models in
+            print("Got Models \(models)")
+        }
+    }
+    
     
     //MARK: Selectors
     

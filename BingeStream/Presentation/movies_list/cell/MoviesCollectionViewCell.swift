@@ -15,6 +15,8 @@ final class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var directorLbl: UILabel!
     @IBOutlet private weak var descriptionLbl: UILabel!
     
+    @IBOutlet private var cons_parent_width: NSLayoutConstraint!
+    
     //MARK: Properties
     static let reuseIdentifier = String(describing: MoviesCollectionViewCell.self)
     private var model: FilmsListModel!
@@ -50,6 +52,14 @@ extension MoviesCollectionViewCell {
     func configureCell(model: FilmsListModel) {
         self.model = model
         configureUI(with: model)
+    }
+    
+    func configure(width: CGFloat) {
+        DispatchQueue.main.async {
+            self.cons_parent_width.constant = width
+            self.layoutIfNeeded()
+        }
+        
     }
     
 }

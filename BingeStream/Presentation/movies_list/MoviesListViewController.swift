@@ -18,6 +18,9 @@ final class MoviesListViewController: UIViewController {
     
     //MARK: UI Properties
     
+    //MARK: Constants
+    static let collectionMargin: CGFloat = 30.0
+    
     //MARK: Lifecycle
     
     class func instance(controller: MoviesListViewController, viewModel: MoviesListViewModel) -> MoviesListViewController {
@@ -43,7 +46,7 @@ final class MoviesListViewController: UIViewController {
 extension MoviesListViewController: MoviesListViewModelOutput {
     
     func didFetchMovies() {
-        print("Got movies in VC \(viewmodel.filmsModel)")
+//        print("Got movies in VC \(viewmodel.filmsModel)")
     }
     
 }
@@ -65,6 +68,7 @@ extension MoviesListViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
         cell.configureCell(model: viewmodel.filmsModel[indexPath.item])
+        cell.configure(width: PresentationConstants.fullscreenWidth - MoviesListViewController.collectionMargin)
         return cell
     }
     

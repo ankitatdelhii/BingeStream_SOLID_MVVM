@@ -27,13 +27,10 @@ final class MoviesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindCollection()
+        configureMoviesCollection()
     }
     
     //MARK: Helpers
-    private func bindCollection() {
-        
-    }
     
     
     //MARK: Selectors
@@ -42,11 +39,33 @@ final class MoviesListViewController: UIViewController {
     
 }
 
-//MARK: ViewModel Output Delegate
+//MARK: - ViewModel Output Delegate
 extension MoviesListViewController: MoviesListViewModelOutput {
     
     func didFetchMovies() {
         print("Got movies in VC \(viewmodel.filmsModel)")
+    }
+    
+}
+
+//MARK: - Movies Collection
+extension MoviesListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    private func configureMoviesCollection() {
+        
+        moviesCollection.register(UINib(nibName: MoviesCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: MoviesCollectionViewCell.reuseIdentifier)
+        moviesCollection.delegate = self
+        moviesCollection.dataSource = self
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewmodel.filmsModel.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
+        cell.configureCell(model: viewmodel.filmsModel[indexPath.item])
+        return cell
     }
     
 }

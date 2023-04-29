@@ -89,7 +89,6 @@
                             <constraint firstItem="O8a-IK-mJI" firstAttribute="top" secondItem="P17-6h-WVR" secondAttribute="bottom" constant="3" id="20S-XO-cmP"/>
                             <constraint firstAttribute="trailing" secondItem="bqZ-Td-Qlk" secondAttribute="trailing" id="2UT-uw-gEd"/>
                             <constraint firstItem="dQp-ak-AJa" firstAttribute="leading" secondItem="lVR-kE-8LQ" secondAttribute="leading" id="326-Mi-ivM"/>
-                            <constraint firstAttribute="width" constant="375" id="3wW-fC-jAb"/>
                             <constraint firstItem="5AM-4N-01f" firstAttribute="leading" secondItem="lVR-kE-8LQ" secondAttribute="leading" id="43j-nA-IxF"/>
                             <constraint firstItem="5AM-4N-01f" firstAttribute="top" secondItem="fOz-Oq-5DS" secondAttribute="bottom" constant="3" id="EMp-d1-FTo"/>
                             <constraint firstAttribute="trailing" secondItem="fOz-Oq-5DS" secondAttribute="trailing" id="Jst-XQ-cna"/>
@@ -118,10 +117,10 @@
             </constraints>
             <connections>
                 <outlet property="actorLbl" destination="O8a-IK-mJI" id="eO3-Ya-34t"/>
-                <outlet property="cons_parent_width" destination="3wW-fC-jAb" id="NP4-eN-9vL"/>
                 <outlet property="descriptionLbl" destination="bqZ-Td-Qlk" id="lwn-kT-ryF"/>
                 <outlet property="directorLbl" destination="fOz-Oq-5DS" id="DAw-a3-x6O"/>
                 <outlet property="movieTitleLbl" destination="P17-6h-WVR" id="0Ia-gy-dzB"/>
+                <outlet property="parentView" destination="lVR-kE-8LQ" id="fx2-Jz-lXe"/>
             </connections>
             <point key="canvasLocation" x="138.1679389312977" y="19.366197183098592"/>
         </collectionViewCell>

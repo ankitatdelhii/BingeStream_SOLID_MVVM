@@ -68,7 +68,6 @@ extension MoviesListViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
         cell.configureCell(model: viewmodel.filmsModel[indexPath.item])
-        cell.configure(width: PresentationConstants.fullscreenWidth - MoviesListViewController.collectionMargin)
         return cell
     }
     

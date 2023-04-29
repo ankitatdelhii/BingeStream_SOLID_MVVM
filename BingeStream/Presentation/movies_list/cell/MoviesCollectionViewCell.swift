@@ -14,8 +14,7 @@ final class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var actorLbl: UILabel!
     @IBOutlet private weak var directorLbl: UILabel!
     @IBOutlet private weak var descriptionLbl: UILabel!
-    
-    @IBOutlet private var cons_parent_width: NSLayoutConstraint!
+    @IBOutlet private weak var parentView: UIView!
     
     //MARK: Properties
     static let reuseIdentifier = String(describing: MoviesCollectionViewCell.self)
@@ -27,6 +26,7 @@ final class MoviesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        parentView.widthAnchor.constraint(equalToConstant: PresentationConstants.fullscreenWidth - MoviesListViewController.collectionMargin).isActive = true
     }
     
     override func prepareForReuse() {
@@ -53,13 +53,6 @@ extension MoviesCollectionViewCell {
         self.model = model
         configureUI(with: model)
     }
-    
-    func configure(width: CGFloat) {
-        DispatchQueue.main.async {
-            self.cons_parent_width.constant = width
-            self.layoutIfNeeded()
-        }
-        
-    }
+
     
 }

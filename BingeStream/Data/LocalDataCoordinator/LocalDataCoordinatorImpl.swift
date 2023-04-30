@@ -14,14 +14,10 @@ final class LocalDataCoordinatorImpl: LocalDataCoordinator {
         self.localDataStorage = localDataStorage
     }
     
-    func save<T>(data: T, forKey key: String, completion: ((Result<T, Error>) -> Void)? = nil) where T : Decodable, T : Encodable {
+    func save<T>(data: T, forKey key: String, completion: ((Result<Bool, Error>) -> Void)? = nil) where T : Decodable, T : Encodable {
         do {
-            if let wrappedCachedData: T? = try localDataStorage.load(forKey: key),
-               let cachedData = wrappedCachedData {
-                completion?(.success(cachedData))
-            } else {
-                completion?(.failure(LocalStorageErrorModel.unableToConvert))
-            }
+            try localDataStorage.save(object: data, forKey: key)
+            completion?(.success(true))
         } catch {
             completion?(.failure(error))
         }

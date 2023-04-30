@@ -50,6 +50,7 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
                 
             case .success(let cachedData):
                 print("Got Cached Data \(cachedData)")
+                self.filmsModel = cachedData
             case .failure(let failure):
                 print("Got Cached Data failure \(failure)")
             }

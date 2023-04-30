@@ -12,7 +12,7 @@ protocol NetworkDispatcher {
     func execute(request: URLRequestConvertible, completion: @escaping CompletionHandler)
 }
 
-class URLSessionNetworkDispatcher: NetworkDispatcher {
+final class URLSessionNetworkDispatcher: NetworkDispatcher {
     private let session: URLSession
 
     init(session: URLSession = .shared) {

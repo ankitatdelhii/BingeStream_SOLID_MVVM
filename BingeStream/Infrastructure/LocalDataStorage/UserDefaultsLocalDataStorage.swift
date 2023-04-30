@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserDefaultsLocalDataStorage: LocalDataStorage {
+final class UserDefaultsLocalDataStorage: LocalDataStorage {
     private let userDefaults: UserDefaults
 
     init(userDefaults: UserDefaults = .standard) {

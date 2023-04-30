@@ -7,23 +7,23 @@
 
 import Foundation
 
-class LocalDataCoordinatorImpl: LocalDataCoordinator {
+final class LocalDataCoordinatorImpl: LocalDataCoordinator {
     private let localDataStorage: LocalDataStorage
 
     init(localDataStorage: LocalDataStorage) {
         self.localDataStorage = localDataStorage
     }
     
-    func save<T>(data: T, forKey key: String, completion: (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
+    func save<T>(data: T, forKey key: String, completion: ((Result<T, Error>) -> Void)? = nil) where T : Decodable, T : Encodable {
         do {
             if let wrappedCachedData: T? = try localDataStorage.load(forKey: key),
                let cachedData = wrappedCachedData {
-                completion(.success(cachedData))
+                completion?(.success(cachedData))
             } else {
-                completion(.failure(LocalStorageErrorModel.unableToConvert))
+                completion?(.failure(LocalStorageErrorModel.unableToConvert))
             }
         } catch {
-            completion(.failure(error))
+            completion?(.failure(error))
         }
     }
     

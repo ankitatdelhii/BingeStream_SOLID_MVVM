@@ -27,12 +27,14 @@ extension MoviesListRepositoryImpl: MoviesListRepository {
     func fetchMovieList(cached: (Result<[MoviesListDTO], Error>) -> Void, api: @escaping (Result<[MoviesListDTO], Error>) -> Void) {
         
         localDataCordinator.fetch(forKey: KEY_MOVIES_REPOSITORY, completion: cached)
-        networkClient.request(endpoint: endPoint) { result in
+        networkClient.request(endpoint: endPoint) {[weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let data):
                 //Todo : Separate JSON Decoder
                 do {
                     let apiData = try JSONDecoder().decode([MoviesListDTO].self, from: data)
+                    self.localDataCordinator.save(data: apiData, forKey: self.KEY_MOVIES_REPOSITORY, completion: nil)
                     api(.success(apiData))
                 } catch {
                     api(.failure(error))

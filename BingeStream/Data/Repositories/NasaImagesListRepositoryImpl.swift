@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NasaImagesListRepositoryImpl {
+final class NasaImagesListRepositoryImpl {
     
     private let localDataCordinator: LocalDataCoordinator
     private let networkClient: APiNetworkClient

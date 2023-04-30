@@ -57,7 +57,6 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
             
             switch apiResult {
             case .success(let apiData):
-//                print("Got Api Data \(apiData)")
                 self.filmsModel = apiData
             case .failure(let failure):
                 print("Got Api Data failure \(failure)")

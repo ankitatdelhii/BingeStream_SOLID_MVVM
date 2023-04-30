@@ -16,4 +16,5 @@ protocol LocalDataCoordinator {
 //MARK: Model //rm Move it to Model
 enum LocalStorageErrorModel: Error {
     case unableToConvert
+    case dataNotInCache
 }

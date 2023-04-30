@@ -26,12 +26,16 @@ final class LocalDataCoordinatorImpl: LocalDataCoordinator {
     
     func fetch<T: Codable>(forKey key: String, completion: (Result<T, Error>) -> Void) {
         do {
-            if let wrappedCachedData: T? = try localDataStorage.load(forKey: key),
-               let cachedData = wrappedCachedData {
-                completion(.success(cachedData))
-            } else {
-                completion(.failure(LocalStorageErrorModel.unableToConvert))
+            guard let wrappedCachedData: T? = try localDataStorage.load(forKey: key) else {
+                completion(.failure(LocalStorageErrorModel.dataNotInCache))
+                return
             }
+            guard let cachedData = wrappedCachedData else {
+                completion(.failure(LocalStorageErrorModel.unableToConvert))
+                return
+            }
+            completion(.success(cachedData))
+            
         } catch {
             completion(.failure(error))
         }

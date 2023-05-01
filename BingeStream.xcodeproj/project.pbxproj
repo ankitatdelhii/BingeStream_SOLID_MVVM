@@ -45,6 +45,7 @@
 		9D87FD4A29E9DA560063ECFE /* NasaImagesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */; };
 		9D87FD4C29E9DB490063ECFE /* NasaImagesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */; };
 		9D87FD4E29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */; };
+		9DF05A6B2A0039DD005F2414 /* MoviesPaginatedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF05A6A2A0039DD005F2414 /* MoviesPaginatedUseCase.swift */; };
 		9DF4286029EDF13A00D97347 /* MoviesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF4285F29EDF13A00D97347 /* MoviesListViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListUseCase.swift; sourceTree = "<group>"; };
 		9D87FD4B29E9DB490063ECFE /* NasaImagesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListRepository.swift; sourceTree = "<group>"; };
 		9D87FD4D29E9DB750063ECFE /* NasaImagesListRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesListRepositoryImpl.swift; sourceTree = "<group>"; };
+		9DF05A6A2A0039DD005F2414 /* MoviesPaginatedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPaginatedUseCase.swift; sourceTree = "<group>"; };
 		9DF4285F29EDF13A00D97347 /* MoviesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -326,6 +328,7 @@
 			children = (
 				9D633A3C29E74AC1006A0D7D /* MoviesListUseCase.swift */,
 				9D87FD4929E9DA550063ECFE /* NasaImagesListUseCase.swift */,
+				9DF05A6A2A0039DD005F2414 /* MoviesPaginatedUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF05A6B2A0039DD005F2414 /* MoviesPaginatedUseCase.swift in Sources */,
 				9D3208B929E5A7F100BF8C35 /* ViewController.swift in Sources */,
 				9D13CA7729E5B253007D771B /* NetworkClient.swift in Sources */,
 				9D4D74AB29EF2B2F0070394A /* AppDIContainer.swift in Sources */,

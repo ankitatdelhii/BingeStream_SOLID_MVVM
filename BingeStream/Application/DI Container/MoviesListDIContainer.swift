@@ -37,7 +37,7 @@ final class MovieListDIContainerImpl: MovieListDIContainer {
     }
     
     // MARK: -  MoviesList ViewModel
-    private func makeMoviesListViewModel(movieListOutput: MoviesListViewModelOutput) -> MoviesListViewModel {
+    private func makeMoviesListViewModel(movieListOutput: MoviesListViewModelOutput) -> MoviesListViewModelOutcomes {
         return MoviesListViewModel(moviesListUseCase: makeMoviesListUseCase(), outputDelegate: movieListOutput)
     }
     

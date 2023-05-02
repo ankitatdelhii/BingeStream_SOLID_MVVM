@@ -14,7 +14,7 @@ final class MoviesListViewController: UIViewController {
     
     //MARK: Properties
     static let controllerName = String(describing: MoviesListViewController.self)
-    private var viewmodel: MoviesListViewModel!
+    private var viewmodel: MoviesListViewModelOutcomes!
     
     //MARK: UI Properties
     
@@ -23,7 +23,7 @@ final class MoviesListViewController: UIViewController {
     
     //MARK: Lifecycle
     
-    class func instance(controller: MoviesListViewController, viewModel: MoviesListViewModel) -> MoviesListViewController {
+    class func instance(controller: MoviesListViewController, viewModel: MoviesListViewModelOutcomes) -> MoviesListViewController {
         controller.viewmodel = viewModel
         return controller
     }
@@ -45,8 +45,10 @@ final class MoviesListViewController: UIViewController {
 //MARK: - ViewModel Output Delegate
 extension MoviesListViewController: MoviesListViewModelOutput {
     
-    func didFetchMovies() {
-//        print("Got movies in VC \(viewmodel.filmsModel)")
+    func moviesDataUpdated() {
+        DispatchQueue.main.async {
+            self.moviesCollection.reloadData()
+        }
     }
     
 }
@@ -69,6 +71,10 @@ extension MoviesListViewController: UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesCollectionViewCell.reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
         cell.configureCell(model: viewmodel.filmsModel[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewmodel.checkForMoreMovies(currentItem: indexPath.item)
     }
     
 }

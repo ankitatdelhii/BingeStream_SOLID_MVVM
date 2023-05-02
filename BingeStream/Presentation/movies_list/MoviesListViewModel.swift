@@ -14,10 +14,11 @@ protocol MoviesListViewModelInputProperties {
 }
 
 protocol MoviesListViewModelInputMethods {
+    func checkForMoreMovies(currentItem: Int)
 }
 
 protocol MoviesListViewModelOutput: AnyObject {
-    func didFetchMovies()
+    func moviesDataUpdated()
 }
 
 typealias MoviesListViewModelOutcomes = MoviesListViewModelInputProperties & MoviesListViewModelInputMethods
@@ -28,7 +29,7 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
     private(set) weak var outputDelegate: MoviesListViewModelOutput?
     private(set) var filmsModel = [FilmsListModel]() {
         didSet {
-            outputDelegate?.didFetchMovies()
+            outputDelegate?.moviesDataUpdated()
         }
     }
     
@@ -59,6 +60,7 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
             switch apiResult {
             case .success(let apiData):
                 self.filmsModel = apiData
+                print("Api data \(apiData)")
             case .failure(let failure):
                 print("Got Api Data failure \(failure)")
             }
@@ -74,5 +76,11 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
 //MARK : - ViewController Input Methods
 extension MoviesListViewModel {
     
+    func checkForMoreMovies(currentItem: Int) {
+        if currentItem == (filmsModel.count - 1) {
+            print("Load more movies")
+//            executeMoviesUseCase()
+        }
+    }
     
 }

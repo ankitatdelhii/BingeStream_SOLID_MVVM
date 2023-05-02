@@ -12,20 +12,22 @@ final class MoviesListRepositoryImpl {
     private let localDataCordinator: LocalDataCoordinator
     private let networkClient: APiNetworkClient
     private let KEY_MOVIES_REPOSITORY = "KEY_MOVIES_REPOSITORY"
-    private let endPoint: APIEndpoint
+    private var endPoint: APIEndpoint
+    private let limit = 5
     
     init(localDataCordinator: LocalDataCoordinator, networkClient: APiNetworkClient) {
         self.localDataCordinator = localDataCordinator
         self.networkClient = networkClient
-        self.endPoint = APIEndpoints().getMoviesList(page: 1, limit: 5)
+        self.endPoint = APIEndpoints().getMoviesList(page: 1, limit: limit)
     }
     
 }
 
 extension MoviesListRepositoryImpl: MoviesListRepository {
     
-    func fetchMovieList(cached: (Result<[MoviesListDTO], Error>) -> Void, api: @escaping (Result<[MoviesListDTO], Error>) -> Void) {
+    func fetchMovieList(page: Int, cached: (Result<[MoviesListDTO], Error>) -> Void, api: @escaping (Result<[MoviesListDTO], Error>) -> Void) {
         
+        self.endPoint = APIEndpoints().getMoviesList(page: page, limit: limit)
         localDataCordinator.fetch(forKey: KEY_MOVIES_REPOSITORY, completion: cached)
         networkClient.request(endpoint: endPoint) {[weak self] result in
             guard let self = self else { return }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MoviesListRepository {
-    func fetchMovieList(cached: (Result<[MoviesListDTO], Error>)-> Void, api: @escaping (Result<[MoviesListDTO], Error>) -> Void)
+    func fetchMovieList(page: Int, cached: (Result<[MoviesListDTO], Error>)-> Void, api: @escaping (Result<[MoviesListDTO], Error>) -> Void)
 }

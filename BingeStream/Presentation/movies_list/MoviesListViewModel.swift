@@ -32,6 +32,8 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
             outputDelegate?.moviesDataUpdated()
         }
     }
+    private var currentPage = 0
+    private var isRequestLoading = false
     
     //Use Cases
     private let moviesListUseCase: MoviesListUseCase
@@ -46,12 +48,15 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
     
     //MARK: Private Helpers
     private func executeMoviesUseCase() {
-        moviesListUseCase.execute { cachedResult in
+        guard !isRequestLoading else { return }
+        isRequestLoading = true
+        currentPage = currentPage + 1
+        moviesListUseCase.execute(page: currentPage){ cachedResult in
             switch cachedResult {
                 
             case .success(let cachedData):
-                print("Got Cached Data \(cachedData)")
-                self.filmsModel = cachedData
+                print("Got Cached Data")
+//                self.filmsModel = cachedData
             case .failure(let failure):
                 print("Got Cached Data failure \(failure)")
             }
@@ -59,12 +64,12 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
             
             switch apiResult {
             case .success(let apiData):
-                self.filmsModel = apiData
-                print("Api data \(apiData)")
+                self.filmsModel.append(contentsOf: apiData)
+                print("Api data \(apiData.count) page \(self.currentPage)")
             case .failure(let failure):
                 print("Got Api Data failure \(failure)")
             }
-            
+            self.isRequestLoading = false
         }
 
 
@@ -79,7 +84,7 @@ extension MoviesListViewModel {
     func checkForMoreMovies(currentItem: Int) {
         if currentItem == (filmsModel.count - 1) {
             print("Load more movies")
-//            executeMoviesUseCase()
+            executeMoviesUseCase()
         }
     }
     

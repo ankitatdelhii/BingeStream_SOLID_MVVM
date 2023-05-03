@@ -19,14 +19,19 @@ final class NetworkClient: APiNetworkClient {
     }
 
     func request(endpoint: APIEndpoint, completion: @escaping (Result<Data, Error>) -> Void) {
-        dispatcher.execute(request: endpoint) { (data, response, error) in
-            if let error = error {
-                completion(.failure(NetworkError.requestFailed(error)))
-            } else if let data = data {
-                completion(.success(data))
-            } else {
-                completion(.failure(NetworkError.noData))
+        
+        //rm Remove Mock Delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.dispatcher.execute(request: endpoint) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(NetworkError.requestFailed(error)))
+                } else if let data = data {
+                    completion(.success(data))
+                } else {
+                    completion(.failure(NetworkError.noData))
+                }
             }
         }
+        
     }
 }

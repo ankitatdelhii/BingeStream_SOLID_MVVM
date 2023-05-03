@@ -48,15 +48,19 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
     
     //MARK: Private Helpers
     private func executeMoviesUseCase() {
-        guard !isRequestLoading else { return }
+        guard !isRequestLoading else {
+            print("APi Request Cancelled. Already in progress")
+            return
+        }
         isRequestLoading = true
         currentPage = currentPage + 1
+        print("Making API Call \(currentPage) \(filmsModel.count)")
         moviesListUseCase.execute(page: currentPage){ cachedResult in
             switch cachedResult {
                 
             case .success(let cachedData):
                 print("Got Cached Data")
-//                self.filmsModel = cachedData
+                self.filmsModel = cachedData
             case .failure(let failure):
                 print("Got Cached Data failure \(failure)")
             }
@@ -64,8 +68,12 @@ final class MoviesListViewModel: MoviesListViewModelOutcomes {
             
             switch apiResult {
             case .success(let apiData):
-                self.filmsModel.append(contentsOf: apiData)
-                print("Api data \(apiData.count) page \(self.currentPage)")
+                if self.currentPage == 1 {
+                    self.filmsModel = apiData
+                } else {
+                    self.filmsModel.append(contentsOf: apiData)
+                }
+                print("Api data \(self.filmsModel.count) page \(self.currentPage)")
             case .failure(let failure):
                 print("Got Api Data failure \(failure)")
             }

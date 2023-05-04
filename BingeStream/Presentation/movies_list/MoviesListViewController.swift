@@ -17,6 +17,10 @@ final class MoviesListViewController: UIViewController {
     private var viewmodel: MoviesListViewModelOutcomes!
     
     //MARK: UI Properties
+    private lazy var activityLoader: FooterActivityView = {
+       let view = FooterActivityViewImpl(frame: CGRect(x: 0, y: 0, width: PresentationConstants.fullscreenWidth - MoviesListViewController.collectionMargin, height: 50))
+        return view
+    }()
     
     //MARK: Constants
     static let collectionMargin: CGFloat = 30.0
@@ -75,6 +79,20 @@ extension MoviesListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewmodel.checkForMoreMovies(currentItem: indexPath.item)
+    }
+    
+}
+
+//MARK: - Api Activity Indicator
+extension MoviesListViewController {
+    
+    private func addApiLoader() {
+        DispatchQueue.main.async {
+            self.activityLoader.activity(enable: true)
+//            self.moviesCollection.
+        }
+        
+        
     }
     
 }
